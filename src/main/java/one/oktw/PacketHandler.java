@@ -52,6 +52,7 @@ class PacketHandler {
             }
 
             if (config.getHackEarlySend()) {
+                ((ServerLoginNetworkHandlerAccessor) handler).setProfile(profile);
                 handler.onHello(new LoginHelloC2SPacket(profile.name(), profile.id()));
             }
 
