@@ -28,7 +28,7 @@ public class ServerLoginNetworkHandler_EarlySendPacket {
     private GameProfile profile;
 
     @Inject(method = "onHello", at = @At(value = "HEAD"), cancellable = true)
-    private void skipKeyPacket(LoginHelloC2SPacket packet, CallbackInfo ci) {
+    private void earlySend(LoginHelloC2SPacket packet, CallbackInfo ci) {
         if (profile != null) return; // Already receive profile form velocity.
 
         ServerLoginNetworkAddon addon = (ServerLoginNetworkAddon) ((NetworkHandlerExtensions) this).getAddon();
